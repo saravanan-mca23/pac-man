@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var arr=[["./img/PacMan1.png","./img/PacMan2.png"],["./img/PacMan3.png","./img/PacMan4.png"]]
+    var img = document.createElement("img")
+    document.body.appendChild(img)
+    var position=0;
+    var flag=0;
+    var velocity=100;
+    var direction=0;
+
+    function moving(){
+        img.src=arr[direction][flag]
+
+        if(position>1200 || position<0){
+            direction= 1-direction
+        }
+        if(direction===0){
+            position += velocity
+        }
+        else{
+            position -= velocity
+        }
+
+        img.style.left=position+"px"
+        flag= 1-flag
+        img.style.width="100px"
+        img.style.height="100px"
+        img.style.position="absolute"
+    }
+    setInterval(moving,100)
+</script>    
+</body>
+</html>
